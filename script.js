@@ -173,7 +173,7 @@ function drawWinningLine(pattern) {
     line.setAttribute('stroke-width', '5');
 
     svg.appendChild(line); // fügt Linie in SVG ein
-    document.body.appendChild(svg); // fügt SVG auf Seite ein
+    document.getElementById('content').appendChild(svg); // fügt SVG auf Seite ein beim div mit der id content
 }
 
 // Setzt das Spielfeld zurück und rendert neu
