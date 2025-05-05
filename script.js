@@ -1,15 +1,17 @@
 // Das Spielfeld: 9 Zellen (3x3)
 let fields = [
     null,
-    'circle',
-    'circle',
-    'circle',
     null,
     null,
-    'cross',
-    'cross',
+    null,
+    null,
+    null,
+    null,
+    null,
     null
 ];
+
+let currentPlayer = 'circle';
 
 function init() {
     render();
@@ -31,7 +33,7 @@ function render() {
             } else if (fields[index] === 'cross') {
                 symbol = generateCrossSVG();
             }
-            html += `<td>${symbol}</td>`;
+            html += `<td onclick="handleClick(${index}, this)">${symbol}</td>`;
         }
         html += '</tr>';
     }
@@ -93,3 +95,22 @@ function generateCrossSVG() {
         </svg>
     `;
 }
+
+function handleClick(index, element) {
+    if (!fields[index]) {
+        fields[index] = currentPlayer;
+
+        if (currentPlayer === 'circle') {
+            element.innerHTML = generateCircleSVG();
+            currentPlayer = 'cross';
+        } else {
+            element.innerHTML = generateCrossSVG();
+            currentPlayer = 'circle';
+        }
+
+        // Entferne das onclick-Attribut
+        element.removeAttribute('onclick');
+    }
+}
+
+
