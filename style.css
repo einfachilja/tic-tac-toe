@@ -12,6 +12,7 @@ body {
 
 h1 {
     text-align: center;
+    margin: 0;
 }
 
 table {
@@ -58,4 +59,25 @@ table tr:last-child td {
 
 table tr td:last-child {
     border-right: 0;
+}
+
+
+#restart-btn {
+    display: block; /* Button blocken, damit margin auto funktioniert */
+    padding: 12px 24px; /* Innenabstand */
+    background-color: rgba(0, 149, 201, 0.8); /* Gleiche Farbe wie der Kreis */
+    color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#restart-btn:hover {
+    background-color: rgb(0, 149, 201); /* Etwas dunkler beim Hover */
+    transform: scale(1.05); /* Leicht größer beim Hover */
+}
+
+#restart-btn:active {
+    transform: scale(0.98); /* Klick-Feedback */
 }

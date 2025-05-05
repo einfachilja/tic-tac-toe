@@ -33,7 +33,7 @@ function render() {
             // wenn Kreis im Feld: SVG für Kreis
             if (fields[index] === 'circle') {
                 symbol = generateCircleSVG();
-            } 
+            }
             // wenn Kreuz im Feld: SVG für Kreuz
             else if (fields[index] === 'cross') {
                 symbol = generateCrossSVG();
@@ -130,9 +130,9 @@ function handleClick(index, element) {
 // prüft alle Gewinnmuster ob 3 gleiche Symbole vorhanden sind
 function checkWinner() {
     const winPatterns = [
-        [0,1,2], [3,4,5], [6,7,8], // Reihen
-        [0,3,6], [1,4,7], [2,5,8], // Spalten
-        [0,4,8], [2,4,6]           // Diagonalen
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Reihen
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Spalten
+        [0, 4, 8], [2, 4, 6]           // Diagonalen
     ];
 
     for (let pattern of winPatterns) {
@@ -174,4 +174,16 @@ function drawWinningLine(pattern) {
 
     svg.appendChild(line); // fügt Linie in SVG ein
     document.body.appendChild(svg); // fügt SVG auf Seite ein
+}
+
+// Setzt das Spielfeld zurück und rendert neu
+function restartGame() {
+    // Alle Felder auf null setzen (leeren)
+    fields = [null, null, null, null, null, null, null, null, null];
+
+    // Startspieler wieder auf 'circle' setzen
+    currentPlayer = 'circle';
+
+    // Spielfeld neu zeichnen
+    render();
 }
